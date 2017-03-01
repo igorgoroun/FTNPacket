@@ -1,0 +1,3 @@
+ftn_packet_homepage:
+    path:     /
+    defaults: { _controller: FTNPacketBundle:Default:index }

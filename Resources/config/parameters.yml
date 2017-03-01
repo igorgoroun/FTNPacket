@@ -1,0 +1,7 @@
+message_encode_fields:
+  - { subject }
+  - { origName }
+  - { destName }
+  - { body }
+  - { origin }
+  - { tearline }
