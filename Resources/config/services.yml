@@ -1,4 +1,0 @@
-services:
-#    ftn_packet.example:
-#        class: IgorGoroun\FTNPacketBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]

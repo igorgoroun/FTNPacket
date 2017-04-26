@@ -31,6 +31,11 @@ class Writer
     private $binary;
 
     /**
+     * @var bool $decode
+     */
+    private $decode = false;
+
+    /**
      * Writer constructor.
      * @param Packet $packet
      * @param string $file
@@ -203,4 +208,22 @@ class Writer
         }
         return [$password,$fill];
     }
+
+    /**
+     * @return bool
+     */
+    public function isDecode(): bool
+    {
+        return $this->decode;
+    }
+
+    /**
+     * @param bool $decode
+     */
+    public function setDecode(bool $decode)
+    {
+        $this->decode = $decode;
+    }
+
+
 }

@@ -8,7 +8,9 @@
 
 namespace IgorGoroun\FTNPacketBundle\Entity;
 
+use Psr\Log\LoggerInterface;
 use wapmorgan\BinaryStream\BinaryStream;
+
 
 /**
  * Class Parser
@@ -17,8 +19,11 @@ use wapmorgan\BinaryStream\BinaryStream;
 class Parser
 {
     private $file;
+    private $decode = false;
+    private $log;
 
-    function __construct(string $file) {
+    function __construct(string $file, LoggerInterface $logger = null) {
+        $this->log = $logger;
         $this->file = $file;
     }
 
@@ -31,6 +36,7 @@ class Parser
         try {
             $binary = new BinaryStream($this->file);
         } catch (\Exception $e) {
+            $this->log->critical("Cannot initialize BinaryStream Bundle");
             return false;
         }
         // Set binary reading groups for packet header, zoneinfo, message header
@@ -103,7 +109,11 @@ class Parser
             $this->parseMessageKludges($binary, $message);
 
             // Get message body
-            $this->parseMessageBody($binary, $message);
+            try {
+                $this->parseMessageBody($binary, $message);
+            } catch (\Exception $e) {
+                $this->log->critical("Cannot parse message body");
+            }
 
             // Check final kludges (Via/PATH)
             $this->parseMessageKludges($binary, $message);
@@ -112,7 +122,9 @@ class Parser
             $this->setAddressesFromKludges($message);
 
             // Decode message from it's codepage to my local utf-8
-            //(new Encoder($message))->decode();
+            if ($this->isDecode()) {
+                (new Encoder($message))->decode();
+            }
 
             // add message to packet
             $packet->addMessage($message);
@@ -208,28 +220,56 @@ class Parser
         //$kludgeFlag = false;
         $bodyLines = [];
         $seenByLines = [];
+        $onUue = false;
         while (!$kludgeFlag) {
-            $lineLength = $this->lengthUntilNullTerminated($binary, 80, 0x0D);
-            if ($lineLength == 0) {
+            $lineLength = $this->lengthUntilNullTerminated($binary, false, 0x0D);
+            // zero-length line
+            if ($lineLength == 0 && !$onUue) {
                 $bodyLines [] = "";
                 $binary->skip(1);
                 continue;
+            } elseif ($lineLength == 0 && $onUue) {
+                // close Uuefile
+                $onUue = false;
+                $binary->skip(1);
+                continue;
             }
+
+            // common: read line
             $line = $binary->readString($lineLength);
 
-            if (preg_match("/^(---\ )(.+)$/",trim($line),$data)) {
-                // Tearline
-                $message->setTearline($data[2]);
-            } elseif (preg_match("/^(\*\ Origin\:\ )(.+)$/",trim($line),$data)) {
-                // Origin
-                $message->setOrigin($data[2]);
-            } elseif (preg_match("/^(SEEN-BY\:\ )(.+)$/",trim($line),$data)) {
-                // Seen-by
-                $seenByLines []= $data[2];
-            } else {
-                // Text
-                $bodyLines []= rtrim($line);
+            // OnUUE parsing
+            if ($onUue) {
+                if ('end' == trim($line)) {
+                    // close UUefile
+                    $onUue = false;
+                } else {
+                    $message->lastUuefile()->addContent(trim($line));
+                }
             }
+            // Tearline
+            if (preg_match("/^(---\ )(.+)$/", trim($line), $data)) {
+                $message->setTearline($data[2]);
+                // Origin
+            } elseif (preg_match("/^(\*\ Origin\:\ )(.+)$/", trim($line), $data)) {
+                $message->setOrigin($data[2]);
+                // Seen-by
+            } elseif (preg_match("/^(SEEN-BY\:\ )(.+)$/", trim($line), $data)) {
+                $seenByLines [] = $data[2];
+                // UUencoded file start
+            } elseif (preg_match("/^begin\ (\d{3,4})\ (.+)$/", trim($line), $data)) {
+                $onUue = true;
+                $uue = new Uuefile();
+                $uue->setFile($data[2]);
+                $uue->setMode($data[1]);
+                $message->addUuefile($uue);
+                //$bodyLines [] = "[UUE:{$uue->getFile()}]";
+                $bodyLines [] = rtrim($line);
+            // Text
+            } else {
+                $bodyLines [] = rtrim($line);
+            }
+
             $binary->skip(1);
             $kludgeFlag = $binary->compare(1,[0x01]);
         }
@@ -388,4 +428,22 @@ class Parser
         ]);
 
     }
+
+    /**
+     * @return bool
+     */
+    public function isDecode(): bool
+    {
+        return $this->decode;
+    }
+
+    /**
+     * @param bool $decode
+     */
+    public function setDecode(bool $decode)
+    {
+        $this->decode = $decode;
+    }
+
+
 }

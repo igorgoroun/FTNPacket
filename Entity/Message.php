@@ -33,6 +33,7 @@ class Message
     private $tearline = null;
     private $kludges = array();
     private $controls = array();
+    private $uuefiles = array();
     private $seenby = null;
 
     private $encoded_fields = array(
@@ -419,4 +420,30 @@ class Message
     }
 
 
+    /**
+     * @return array
+     */
+    public function getUuefiles()
+    {
+        return $this->uuefiles;
+    }
+
+    /**
+     * @param Uuefile $uuefile
+     */
+    public function addUuefile($uuefile)
+    {
+        $this->uuefiles []= $uuefile;
+    }
+
+    /**
+     * @return Uuefile|null
+     */
+    public function lastUuefile() {
+        if (count($this->uuefiles)>0) {
+            return $this->uuefiles[count($this->uuefiles)-1];
+        } else {
+            return null;
+        }
+    }
 }
