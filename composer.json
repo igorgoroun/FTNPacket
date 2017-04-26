@@ -1,0 +1,24 @@
+{
+    "name": "igorgoroun/ftnpacket",
+    "description": "Fidonet packet parser and writer",
+    "type": "library",
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "Igor Goroun",
+            "email": "igor.goroun@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^5.5|^7.0"
+    },
+    "autoload": {
+        "psr-4": {"IgorGoroun\\FTNPacket\\": ""}
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}
