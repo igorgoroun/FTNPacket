@@ -11,10 +11,11 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": "^5.5|^7.0"
+        "php": "^5.5|^7.0",
+        "wapmorgan/binary-stream": "^0.2.3"
     },
     "autoload": {
-        "psr-4": {"IgorGoroun\\FTNPacket\\": ""}
+        "psr-4": {"IgorGoroun\\FTNPacketBundle\\": ""}
     },
     "extra": {
         "branch-alias": {
