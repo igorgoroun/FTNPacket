@@ -1,17 +1,17 @@
 <?php
 
-namespace IgorGoroun\FTNPacketBundle\Tests\Controller;
+namespace IgorGoroun\FTNPacket\Tests\Controller;
 
-use IgorGoroun\FTNPacketBundle\Entity\Address;
-use IgorGoroun\FTNPacketBundle\Entity\Packet;
-use IgorGoroun\FTNPacketBundle\Entity\Parser;
+use IgorGoroun\FTNPacket\Address;
+use IgorGoroun\FTNPacket\Packet;
+use IgorGoroun\FTNPacket\Parser;
+use IgorGoroun\FTNPacket\Message;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Encoder\YamlEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
-use IgorGoroun\FTNPacketBundle\Entity\Message;
 
 
 class ParseAddressTest extends WebTestCase

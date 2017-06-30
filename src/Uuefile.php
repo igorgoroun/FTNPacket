@@ -19,7 +19,7 @@
  * end
  */
 
-namespace IgorGoroun\FTNPacketBundle\Entity;
+namespace IgorGoroun\FTNPacket;
 
 
 class Uuefile

@@ -6,13 +6,13 @@
  * Time: 15:21
  */
 
-namespace IgorGoroun\FTNPacketBundle\Entity;
+namespace IgorGoroun\FTNPacket;
 
 use wapmorgan\BinaryStream\BinaryStream;
 
 /**
  * Class Writer
- * @package IgorGoroun\FTNPacketBundle\Entity
+ * @package IgorGoroun\FTNPacket
  */
 class Writer
 {

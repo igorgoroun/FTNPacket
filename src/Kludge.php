@@ -6,7 +6,7 @@
  * Time: 22:56
  */
 
-namespace IgorGoroun\FTNPacketBundle\Entity;
+namespace IgorGoroun\FTNPacket;
 
 
 class Kludge

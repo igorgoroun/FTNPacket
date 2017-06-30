@@ -6,11 +6,11 @@
  * Time: 20:47
  */
 
-namespace IgorGoroun\FTNPacketBundle\Entity;
+namespace IgorGoroun\FTNPacket;
 
 /**
  * Class Packet
- * @package IgorGoroun\FTNPacketBundle\Entity
+ * @package IgorGoroun\FTNPacket
  */
 class Packet
 {

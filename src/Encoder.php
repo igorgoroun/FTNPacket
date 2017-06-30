@@ -6,7 +6,7 @@
  * Time: 19:37
  */
 
-namespace IgorGoroun\FTNPacketBundle\Entity;
+namespace IgorGoroun\FTNPacket;
 
 
 class Encoder

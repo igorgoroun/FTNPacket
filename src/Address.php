@@ -6,11 +6,11 @@
  * Time: 15:13
  */
 
-namespace IgorGoroun\FTNPacketBundle\Entity;
+namespace IgorGoroun\FTNPacket;
 
 /**
  * Class Address
- * @package IgorGoroun\FTNPacketBundle\Entity
+ * @package IgorGoroun\FTNPacket
  */
 class Address
 {

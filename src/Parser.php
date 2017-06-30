@@ -6,7 +6,7 @@
  * Time: 15:23
  */
 
-namespace IgorGoroun\FTNPacketBundle\Entity;
+namespace IgorGoroun\FTNPacket;
 
 use Psr\Log\LoggerInterface;
 use wapmorgan\BinaryStream\BinaryStream;
@@ -14,7 +14,7 @@ use wapmorgan\BinaryStream\BinaryStream;
 
 /**
  * Class Parser
- * @package IgorGoroun\FTNPacketBundle\Entity
+ * @package IgorGoroun\FTNPacket
  */
 class Parser
 {

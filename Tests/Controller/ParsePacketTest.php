@@ -1,18 +1,18 @@
 <?php
 
-namespace IgorGoroun\FTNPacketBundle\Tests\Controller;
+namespace IgorGoroun\FTNPacket\Tests\Controller;
 
-use IgorGoroun\FTNPacketBundle\Entity\Address;
-use IgorGoroun\FTNPacketBundle\Entity\Packet;
-use IgorGoroun\FTNPacketBundle\Entity\Parser;
-use IgorGoroun\FTNPacketBundle\Entity\Uuefile;
+use IgorGoroun\FTNPacket\Address;
+use IgorGoroun\FTNPacket\Packet;
+use IgorGoroun\FTNPacket\Parser;
+use IgorGoroun\FTNPacket\Uuefile;
+use IgorGoroun\FTNPacket\Message;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Encoder\YamlEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
-use IgorGoroun\FTNPacketBundle\Entity\Message;
 
 
 class ParsePacketTest extends WebTestCase
@@ -24,7 +24,7 @@ class ParsePacketTest extends WebTestCase
         //$crawler = $client->request('GET', '/');
         //$this->assertContains('Hello World', $client->getResponse()->getContent());
         $finder = new Finder();
-        $finder->files()->in('src/IgorGoroun/FTNPacketBundle/Tests/Resources/Echomail')->name('57B435B7.PKT');
+        $finder->files()->in('src/IgorGoroun/ftnpacket/Tests/Resources/Echomail')->name('57B435B7.PKT');
         foreach ($finder as $file) {
             $packet = (new Parser($file->getPathname()))->parsePacket();
             $this->assertNotEmpty($packet->getHeader()->getDate());
@@ -42,7 +42,7 @@ class ParsePacketTest extends WebTestCase
     public function testPacketEchomailMessages()
     {
         $finder = new Finder();
-        $finder->files()->in('src/IgorGoroun/FTNPacketBundle/Tests/Resources/Echomail')->name('57B44611.PKT');
+        $finder->files()->in('src/IgorGoroun/ftnpacket/Tests/Resources/Echomail')->name('57B44611.PKT');
         foreach ($finder as $file) {
             $packet = (new Parser($file->getPathname()))->parsePacket();
 
@@ -76,7 +76,7 @@ class ParsePacketTest extends WebTestCase
     public function testPacketEchomailUUE()
     {
         $finder = new Finder();
-        $finder->files()->in('src/IgorGoroun/FTNPacketBundle/Tests/Resources/Echomail')->name('58c30f20.PKT');
+        $finder->files()->in('src/IgorGoroun/ftnpacket/Tests/Resources/Echomail')->name('58c30f20.PKT');
         foreach ($finder as $file) {
             $packet = (new Parser($file->getPathname()))->parsePacket();
 
@@ -110,7 +110,7 @@ class ParsePacketTest extends WebTestCase
     public function testNetmailMessageOtherZone()
     {
         $finder = new Finder();
-        $finder->files()->in('src/IgorGoroun/FTNPacketBundle/Tests/Resources/Netmail')->name('58B08F69.PKT');
+        $finder->files()->in('src/IgorGoroun/ftnpacket/Tests/Resources/Netmail')->name('58B08F69.PKT');
         foreach ($finder as $file) {
             $packet = (new Parser($file->getPathname()))->parsePacket();
 
@@ -143,7 +143,7 @@ class ParsePacketTest extends WebTestCase
     public function testNetmailMessageFromNodeAddr()
     {
         $finder = new Finder();
-        $finder->files()->in('src/IgorGoroun/FTNPacketBundle/Tests/Resources/Netmail')->name('58B09980.PKT');
+        $finder->files()->in('src/IgorGoroun/ftnpacket/Tests/Resources/Netmail')->name('58B09980.PKT');
         foreach ($finder as $file) {
             $packet = (new Parser($file->getPathname()))->parsePacket();
 
@@ -177,7 +177,7 @@ class ParsePacketTest extends WebTestCase
     public function testNetmailMessageFromOtherRegionAndEcho()
     {
         $finder = new Finder();
-        $finder->files()->in('src/IgorGoroun/FTNPacketBundle/Tests/Resources/Netmail')->name('58B099BD.PKT');
+        $finder->files()->in('src/IgorGoroun/ftnpacket/Tests/Resources/Netmail')->name('58B099BD.PKT');
         foreach ($finder as $file) {
             $packet = (new Parser($file->getPathname()))->parsePacket();
 
@@ -210,7 +210,7 @@ class ParsePacketTest extends WebTestCase
     public function testNetmailMessageFromOtherRegion2()
     {
         $finder = new Finder();
-        $finder->files()->in('src/IgorGoroun/FTNPacketBundle/Tests/Resources/Netmail')->name('58B09D50.PKT');
+        $finder->files()->in('src/IgorGoroun/ftnpacket/Tests/Resources/Netmail')->name('58B09D50.PKT');
         foreach ($finder as $file) {
             $packet = (new Parser($file->getPathname()))->parsePacket();
 
@@ -243,7 +243,7 @@ class ParsePacketTest extends WebTestCase
     public function testOtherFile()
     {
         $finder = new Finder();
-        $finder->files()->in('src/IgorGoroun/FTNPacketBundle/Tests/Resources/Other')->name('gedcolor.cfg');
+        $finder->files()->in('src/IgorGoroun/ftnpacket/Tests/Resources/Other')->name('gedcolor.cfg');
         foreach ($finder as $file) {
             $packet = (new Parser($file->getPathname()))->parsePacket();
             $this->assertNotInstanceOf(Packet::class, $packet);
