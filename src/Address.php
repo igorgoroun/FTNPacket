@@ -6,11 +6,11 @@
  * Time: 15:13
  */
 
-namespace IgorGoroun\FTNPacket;
+namespace snakemkua\FTNPacket;
 
 /**
  * Class Address
- * @package IgorGoroun\FTNPacket
+ * @package snakemkua\FTNPacket
  */
 class Address
 {
@@ -37,7 +37,7 @@ class Address
         }
     }
 
-    private function setProperties ($data) {
+    protected function setProperties ($data) {
         $this->setZone(intval($data[1]));
         $this->setNetwork(intval($data[2]));
         $this->setNode(intval($data[3]));
@@ -54,6 +54,16 @@ class Address
             if ($this->getPoint() != null) {
                 $address .= sprintf(".%d", $this->getPoint());
             }
+            return $address;
+        } else return false;
+    }
+
+    /**
+     * @return bool|string
+     */
+    public function dumpNode () {
+        if ($this->getZone() != null && $this->getNetwork() != null && $this->getNode() != null) {
+            $address = sprintf("%d:%d/%d", $this->getZone(), $this->getNetwork(), $this->getNode());
             return $address;
         } else return false;
     }

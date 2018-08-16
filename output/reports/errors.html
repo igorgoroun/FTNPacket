@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>     &raquo; Compilation errors
+</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/snakemkua.html">\snakemkua</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">222</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">2</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+
+            <ul class="side-nav nav nav-list">
+                <li class="nav-header">Navigation</li>
+                                                                            <li><a href="#Header.php"><i class="icon-file"></i> Header.php</a></li>
+                                                                                                    <li><a href="#Kludge.php"><i class="icon-file"></i> Kludge.php</a></li>
+                                                                                                    <li><a href="#Uuefile.php"><i class="icon-file"></i> Uuefile.php</a></li>
+                                                                                                    <li><a href="#Packet.php"><i class="icon-file"></i> Packet.php</a></li>
+                                                                                                    <li><a href="#Writer.php"><i class="icon-file"></i> Writer.php</a></li>
+                                                                                                    <li><a href="#Message.php"><i class="icon-file"></i> Message.php</a></li>
+                                                                                                    <li><a href="#Address.php"><i class="icon-file"></i> Address.php</a></li>
+                                                                                                    <li><a href="#Parser.php"><i class="icon-file"></i> Parser.php</a></li>
+                                                                                                    <li><a href="#Encoder.php"><i class="icon-file"></i> Encoder.php</a></li>
+                                                                    </ul>
+        </div>
+
+        <div class="span10 offset2">
+            <ul class="breadcrumb">
+                <li><a href="../"><i class="icon-remove-sign"></i></a><span class="divider">\</span></li>
+                <li>Compilation Errors</li>
+            </ul>
+
+            
+                            <div class="package-contents">
+                                            <a name="Header.php" id="Header.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Header.php
+                            <small style="float: right;padding-right: 10px;">47</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>36</td>
+                                        <td>No summary for method setProperty()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>44</td>
+                                        <td>No summary for method valid()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>68</td>
+                                        <td>No summary for method setFrom()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>77</td>
+                                        <td>No summary for method setTo()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>85</td>
+                                        <td>No summary for method setDate()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>102</td>
+                                        <td>No summary for method calculateDate()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>120</td>
+                                        <td>No summary for method getNodeFrom()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>128</td>
+                                        <td>No summary for method setNodeFrom()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>136</td>
+                                        <td>No summary for method getNodeTo()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>144</td>
+                                        <td>No summary for method setNodeTo()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>152</td>
+                                        <td>No summary for method getNetFrom()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>160</td>
+                                        <td>No summary for method setNetFrom()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>168</td>
+                                        <td>No summary for method getNetTo()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>176</td>
+                                        <td>No summary for method setNetTo()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>184</td>
+                                        <td>No summary for method getZoneFrom()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>192</td>
+                                        <td>No summary for method setZoneFrom()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>200</td>
+                                        <td>No summary for method getZoneTo()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>208</td>
+                                        <td>No summary for method setZoneTo()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>216</td>
+                                        <td>No summary for method getPassword()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>224</td>
+                                        <td>No summary for method setPassword()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>233</td>
+                                        <td>No summary for method getDateYear()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>241</td>
+                                        <td>No summary for method setDateYear()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>249</td>
+                                        <td>No summary for method getDateMonth()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>257</td>
+                                        <td>No summary for method setDateMonth()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>265</td>
+                                        <td>No summary for method getDateDay()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>273</td>
+                                        <td>No summary for method setDateDay()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>281</td>
+                                        <td>No summary for method getDateHour()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>289</td>
+                                        <td>No summary for method setDateHour()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>297</td>
+                                        <td>No summary for method getDateMinute()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>305</td>
+                                        <td>No summary for method setDateMinute()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>313</td>
+                                        <td>No summary for method getDateSecond()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>321</td>
+                                        <td>No summary for method setDateSecond()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>329</td>
+                                        <td>No summary for method getDate()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>17</td>
+                                        <td>No summary for property $nodeFrom</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>18</td>
+                                        <td>No summary for property $nodeTo</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>19</td>
+                                        <td>No summary for property $netFrom</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>20</td>
+                                        <td>No summary for property $netTo</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>21</td>
+                                        <td>No summary for property $zoneFrom</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>22</td>
+                                        <td>No summary for property $zoneTo</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>23</td>
+                                        <td>No summary for property $dateYear</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>24</td>
+                                        <td>No summary for property $dateMonth</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>25</td>
+                                        <td>No summary for property $dateDay</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>26</td>
+                                        <td>No summary for property $dateHour</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>27</td>
+                                        <td>No summary for property $dateMinute</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>28</td>
+                                        <td>No summary for property $dateSecond</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>29</td>
+                                        <td>No summary for property $date</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>30</td>
+                                        <td>No summary for property $password</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Kludge.php" id="Kludge.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Kludge.php
+                            <small style="float: right;padding-right: 10px;">1</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>0</td>
+                                        <td>No summary was found for this file</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Uuefile.php" id="Uuefile.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Uuefile.php
+                            <small style="float: right;padding-right: 10px;">13</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>25</td>
+                                        <td>No summary for class \snakemkua\FTNPacket\Uuefile</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>47</td>
+                                        <td>No summary for method getPart()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>55</td>
+                                        <td>No summary for method setPart()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>63</td>
+                                        <td>No summary for method getFile()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>71</td>
+                                        <td>No summary for method setFile()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>79</td>
+                                        <td>No summary for method getMode()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>87</td>
+                                        <td>No summary for method setMode()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>95</td>
+                                        <td>No summary for method getContent()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>103</td>
+                                        <td>No summary for method addContent()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>30</td>
+                                        <td>No summary for property $part</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>34</td>
+                                        <td>No summary for property $file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>38</td>
+                                        <td>No summary for property $mode</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>42</td>
+                                        <td>No summary for property $content</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Packet.php" id="Packet.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Packet.php
+                            <small style="float: right;padding-right: 10px;">19</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>32</td>
+                                        <td>No summary for method __construct()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>36</td>
+                                        <td>No summary for method valid()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>55</td>
+                                        <td>Argument $address is missing from the Docblock of setFrom</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>55</td>
+                                        <td>No summary for method setFrom()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>58</td>
+                                        <td>Argument $address is missing from the Docblock of setTo</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>58</td>
+                                        <td>No summary for method setTo()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>62</td>
+                                        <td>Argument $date is missing from the Docblock of setDate</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>62</td>
+                                        <td>No summary for method setDate()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>65</td>
+                                        <td>Argument $password is missing from the Docblock of setPassword</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>65</td>
+                                        <td>No summary for method setPassword()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>72</td>
+                                        <td>No summary for method setRealRecipient()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>80</td>
+                                        <td>No summary for method getRealRecipient()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>88</td>
+                                        <td>No summary for method setHeader()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>96</td>
+                                        <td>No summary for method getHeader()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>104</td>
+                                        <td>No summary for method getMessages()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>112</td>
+                                        <td>No summary for method addMessage()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>20</td>
+                                        <td>No summary for property $header</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>25</td>
+                                        <td>No summary for property $realRecipient</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>30</td>
+                                        <td>No summary for property $messages</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Writer.php" id="Writer.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Writer.php
+                            <small style="float: right;padding-right: 10px;">22</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>58</td>
+                                        <td>No summary for method writePacket()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>94</td>
+                                        <td>No summary for method writeMessageHeader()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>119</td>
+                                        <td>Argument $message is missing from the Docblock of writeMessageKludges</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>119</td>
+                                        <td>Argument $include is missing from the Docblock of writeMessageKludges</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>119</td>
+                                        <td>Argument $except is missing from the Docblock of writeMessageKludges</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>119</td>
+                                        <td>No summary for method writeMessageKludges()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>132</td>
+                                        <td>Argument $message is missing from the Docblock of writeMessageControls</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>132</td>
+                                        <td>Argument $include is missing from the Docblock of writeMessageControls</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>132</td>
+                                        <td>Argument $except is missing from the Docblock of writeMessageControls</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>132</td>
+                                        <td>No summary for method writeMessageControls()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>145</td>
+                                        <td>Argument $message is missing from the Docblock of writeMessageFooter</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>145</td>
+                                        <td>No summary for method writeMessageFooter()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>168</td>
+                                        <td>Argument $message is missing from the Docblock of writeMessageBody</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>168</td>
+                                        <td>No summary for method writeMessageBody()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>212</td>
+                                        <td>Argument $password is missing from the Docblock of passZeroFill</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>212</td>
+                                        <td>No summary for method passZeroFill()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>227</td>
+                                        <td>No summary for method isDecode()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>235</td>
+                                        <td>No summary for method setDecode()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>22</td>
+                                        <td>No summary for property $packet</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>26</td>
+                                        <td>No summary for property $file</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>31</td>
+                                        <td>No summary for property $binary</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>36</td>
+                                        <td>No summary for property $decode</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Message.php" id="Message.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Message.php
+                            <small style="float: right;padding-right: 10px;">81</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>50</td>
+                                        <td>No summary for method __construct()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>121</td>
+                                        <td>No summary for method valid()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>154</td>
+                                        <td>Argument $property is missing from the Docblock of setProperty</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>154</td>
+                                        <td>Argument $value is missing from the Docblock of setProperty</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>154</td>
+                                        <td>No summary for method setProperty()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>161</td>
+                                        <td>Argument $property is missing from the Docblock of getProperty</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>161</td>
+                                        <td>No summary for method getProperty()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>172</td>
+                                        <td>No summary for method getNodeFrom()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>180</td>
+                                        <td>No summary for method setNodeFrom()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>188</td>
+                                        <td>No summary for method getNodeTo()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>196</td>
+                                        <td>No summary for method setNodeTo()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>204</td>
+                                        <td>No summary for method getNetFrom()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>212</td>
+                                        <td>No summary for method setNetFrom()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>220</td>
+                                        <td>No summary for method getNetTo()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>228</td>
+                                        <td>No summary for method setNetTo()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>236</td>
+                                        <td>No summary for method getDate()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>244</td>
+                                        <td>No summary for method setDate()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>260</td>
+                                        <td>No summary for method getOrigName()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>268</td>
+                                        <td>No summary for method setOrigName()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>276</td>
+                                        <td>No summary for method getDestName()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>284</td>
+                                        <td>No summary for method setDestName()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>292</td>
+                                        <td>No summary for method getSubject()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>300</td>
+                                        <td>No summary for method setSubject()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>309</td>
+                                        <td>No summary for method isEchomail()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>317</td>
+                                        <td>No summary for method isNetmail()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>325</td>
+                                        <td>No summary for method setEchomail()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>333</td>
+                                        <td>No summary for method getArea()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>341</td>
+                                        <td>No summary for method setArea()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>350</td>
+                                        <td>No summary for method getOrigAddr()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>358</td>
+                                        <td>No summary for method setOrigAddr()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>370</td>
+                                        <td>No summary for method getDestAddr()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>378</td>
+                                        <td>No summary for method setDestAddr()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>390</td>
+                                        <td>No summary for method getBody()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>398</td>
+                                        <td>No summary for method setBody()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>406</td>
+                                        <td>No summary for method getOrigin()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>414</td>
+                                        <td>No summary for method setOrigin()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>431</td>
+                                        <td>No summary for method getTearline()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>439</td>
+                                        <td>No summary for method setTearline()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>447</td>
+                                        <td>No summary for method getKludges()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>455</td>
+                                        <td>No summary for method addKludge()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>460</td>
+                                        <td>Argument $kludgeName is missing from the Docblock of hasKludge</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>460</td>
+                                        <td>No summary for method hasKludge()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>474</td>
+                                        <td>No summary for method getControls()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>483</td>
+                                        <td>No summary for method addControl()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>488</td>
+                                        <td>Argument $controlName is missing from the Docblock of hasControl</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>488</td>
+                                        <td>No summary for method hasControl()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>501</td>
+                                        <td>No summary for method getEncodedFields()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>509</td>
+                                        <td>No summary for method getSeenby()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>517</td>
+                                        <td>No summary for method setSeenby()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>525</td>
+                                        <td>No summary for method getOrigMsgID()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>533</td>
+                                        <td>No summary for method setOrigMsgID()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>541</td>
+                                        <td>No summary for method getAttribute()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>549</td>
+                                        <td>No summary for method setAttribute()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>557</td>
+                                        <td>No summary for method getCost()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>565</td>
+                                        <td>No summary for method setCost()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>573</td>
+                                        <td>No summary for method getUuefiles()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>581</td>
+                                        <td>No summary for method addUuefile()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>589</td>
+                                        <td>No summary for method lastUuefile()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>17</td>
+                                        <td>No summary for property $nodeFrom</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>18</td>
+                                        <td>No summary for property $nodeTo</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>19</td>
+                                        <td>No summary for property $netFrom</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>20</td>
+                                        <td>No summary for property $netTo</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>21</td>
+                                        <td>No summary for property $date</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>22</td>
+                                        <td>No summary for property $subject</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>23</td>
+                                        <td>No summary for property $echomail</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>24</td>
+                                        <td>No summary for property $area</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>25</td>
+                                        <td>No summary for property $origMsgID</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>26</td>
+                                        <td>No summary for property $origName</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>27</td>
+                                        <td>No summary for property $origAddr</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>28</td>
+                                        <td>No summary for property $destName</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>29</td>
+                                        <td>No summary for property $destAddr</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>30</td>
+                                        <td>No summary for property $attribute</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>31</td>
+                                        <td>No summary for property $cost</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>32</td>
+                                        <td>No summary for property $body</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>33</td>
+                                        <td>No summary for property $origin</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>34</td>
+                                        <td>No summary for property $tearline</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>35</td>
+                                        <td>No summary for property $kludges</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>36</td>
+                                        <td>No summary for property $controls</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>37</td>
+                                        <td>No summary for property $uuefiles</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>38</td>
+                                        <td>No summary for property $seenby</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>40</td>
+                                        <td>No summary for property $encoded_fields</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Address.php" id="Address.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Address.php
+                            <small style="float: right;padding-right: 10px;">27</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>24</td>
+                                        <td>Argument $address is missing from the Docblock of __construct</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>24</td>
+                                        <td>No summary for method __construct()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>30</td>
+                                        <td>Argument $address is missing from the Docblock of parse</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>30</td>
+                                        <td>No summary for method parse()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>40</td>
+                                        <td>Argument $data is missing from the Docblock of setProperties</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>40</td>
+                                        <td>No summary for method setProperties()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>51</td>
+                                        <td>No summary for method dump()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>64</td>
+                                        <td>No summary for method dumpNode()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>74</td>
+                                        <td>No summary for method dumpFull()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>87</td>
+                                        <td>No summary for method getZone()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>95</td>
+                                        <td>No summary for method setZone()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>103</td>
+                                        <td>No summary for method getRegion()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>111</td>
+                                        <td>No summary for method setRegion()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>119</td>
+                                        <td>No summary for method getNetwork()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>127</td>
+                                        <td>No summary for method setNetwork()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>135</td>
+                                        <td>No summary for method getNode()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>143</td>
+                                        <td>No summary for method setNode()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>151</td>
+                                        <td>No summary for method getPoint()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>159</td>
+                                        <td>No summary for method setPoint()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>167</td>
+                                        <td>No summary for method getDomain()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>175</td>
+                                        <td>No summary for method setDomain()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>17</td>
+                                        <td>No summary for property $zone</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>18</td>
+                                        <td>No summary for property $region</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>19</td>
+                                        <td>No summary for property $network</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>20</td>
+                                        <td>No summary for property $node</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>21</td>
+                                        <td>No summary for property $point</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>22</td>
+                                        <td>No summary for property $domain</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Parser.php" id="Parser.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Parser.php
+                            <small style="float: right;padding-right: 10px;">2</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>552</td>
+                                        <td>No summary for method isDecode()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>560</td>
+                                        <td>No summary for method setDecode()</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                            <div class="package-contents">
+                                            <a name="Encoder.php" id="Encoder.php"></a>
+                        <h3>
+                            <i class="icon-file"></i>
+                            Encoder.php
+                            <small style="float: right;padding-right: 10px;">10</small>
+                        </h3>
+                        <div>
+                            <table class="table markers table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Line</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>12</td>
+                                        <td>No summary for class \snakemkua\FTNPacket\Encoder</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>19</td>
+                                        <td>Argument $message is missing from the Docblock of __construct</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>19</td>
+                                        <td>No summary for method __construct()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>24</td>
+                                        <td>No summary for method decode()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>30</td>
+                                        <td>No summary for method encode()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>36</td>
+                                        <td>No summary for method setCHRS()</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>14</td>
+                                        <td>No summary for property $default_local</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>15</td>
+                                        <td>No summary for property $default_outer</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>16</td>
+                                        <td>No summary for property $message_chrs</td>
+                                    </tr>
+                                                                    <tr>
+                                        <td>error</td>
+                                        <td>17</td>
+                                        <td>No summary for property $message</td>
+                                    </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                                    </div>
+                    </div>
+    </section>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/snakemkua.html">\snakemkua</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on March 21st, 2018 at 22:12.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

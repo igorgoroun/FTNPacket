@@ -19,7 +19,7 @@
  * end
  */
 
-namespace IgorGoroun\FTNPacket;
+namespace snakemkua\FTNPacket;
 
 
 class Uuefile

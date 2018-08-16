@@ -1,5 +1,5 @@
 {
-    "name": "igorgoroun/ftnpacket",
+    "name": "snakemkua/ftnpacket",
     "description": "Fidonet packet parser and writer",
     "type": "library",
     "license": "GPL-2.0",
@@ -12,10 +12,10 @@
     "minimum-stability": "dev",
     "require": {
         "php": "^5.5|^7.0",
-        "wapmorgan/binary-stream": "^0.2.3"
+        "wapmorgan/binary-stream": "^0.4"
     },
     "autoload": {
-        "psr-4": {"IgorGoroun\\FTNPacket\\": "src/"}
+        "psr-4": {"snakemkua\\FTNPacket\\": "src/"}
     },
     "extra": {
         "branch-alias": {

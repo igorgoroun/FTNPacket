@@ -1,12 +1,12 @@
 <?php
 
-namespace IgorGoroun\FTNPacket\Tests\Controller;
+namespace snakemkua\FTNPacket\Tests\Controller;
 
-use IgorGoroun\FTNPacket\Address;
-use IgorGoroun\FTNPacket\Packet;
-use IgorGoroun\FTNPacket\Parser;
-use IgorGoroun\FTNPacket\Message;
-use IgorGoroun\FTNPacket\Writer;
+use snakemkua\FTNPacket\Address;
+use snakemkua\FTNPacket\Packet;
+use snakemkua\FTNPacket\Parser;
+use snakemkua\FTNPacket\Message;
+use snakemkua\FTNPacket\Writer;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
@@ -51,7 +51,7 @@ class WritePacketTest extends WebTestCase
             try {
                 $writer->writePacket();
             } catch (\Exception $e) {
-                echo $e->getMessage();
+                //echo $e->getMessage();
             }
             $i++;
         }

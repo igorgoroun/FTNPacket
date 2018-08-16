@@ -6,11 +6,11 @@
  * Time: 20:50
  */
 
-namespace IgorGoroun\FTNPacket;
+namespace snakemkua\FTNPacket;
 
 /**
  * Class Message
- * @package IgorGoroun\FTNPacket
+ * @package snakemkua\FTNPacket
  */
 class Message
 {
@@ -28,6 +28,7 @@ class Message
     private $destName = null;
     private $destAddr = null;
     private $attribute = null;
+    private $cost = null;
     private $body = null;
     private $origin = null;
     private $tearline = null;
@@ -45,15 +46,123 @@ class Message
         'tearline'
     );
 
+    // FUNCTIONS
+    public function __construct() {
+        // slow generator... or not?
+        // $this->setOrigMsgID(hash('crc32b', microtime()));
+        // another msgid generator, thanks to Phito:
+        $this->setOrigMsgID(sprintf("%08x", rand(0,0xFFFF)|(rand(0,0xFFFF)<<16)));
+    }
 
+    /**
+     * Use this method after set main variables
+     * to create message controls, kludges, etc...
+     */
+    public function prepare() {
+        // generate netmail controls
+        if ($this->isNetmail()) {
+            $this->generateNetmailControls();
+        // generate echomail controls
+        } else {
+            $this->generateEchomailControls();
+        }
+        // create CHRS
+        $enc = new Kludge();
+        $enc->setLabel('CHRS');
+        $enc->setValue('UTF-8');
+        $this->addKludge($enc);
+        // create TZ
+        $tz = new Kludge();
+        $tz->setLabel('TZUTC');
+        $tz->setValue(sprintf('%+03d00', $this->getDate()->getOffset()/3600));
+        $this->addKludge($tz);
+        // create MSGID
+        $msgid = new Kludge();
+        $msgid->setLabel('MSGID');
+        $msgid->setValue($this->getOrigAddr()->dump().' '.$this->getOrigMsgID());
+        $this->addKludge($msgid);
+
+        // return validation check
+        return $this->valid();
+    }
+
+    /**
+     * This private method generates control paragraphs for netmail message
+     */
+    private function generateNetmailControls() {
+        // need FMPT
+        if ($this->getOrigAddr()->getPoint() !== null) {
+            $fmpt = new Kludge();
+            $fmpt->setLabel('FMPT');
+            $fmpt->setValue($this->getOrigAddr()->getPoint());
+            $this->addControl($fmpt);
+        }
+        // need TOPT
+        if ($this->getDestAddr()->getPoint() !== null) {
+            $topt = new Kludge();
+            $topt->setLabel('TOPT');
+            $topt->setValue($this->getDestAddr()->getPoint());
+            $this->addControl($topt);
+        }
+        // create INTL
+        $intl = new Kludge();
+        $intl->setLabel('INTL');
+        $intl->setValue($this->getDestAddr()->dumpNode().' '.$this->getOrigAddr()->dumpNode());
+        $this->addControl($intl);
+    }
+
+    /**
+     * This private method generates data for echomail message
+     */
+    private function generateEchomailControls() {
+        return true;
+    }
+
+    public function valid() {
+        $params = false;
+        if ($this->nodeFrom !== null
+            && $this->nodeTo !== null
+            && $this->netFrom !== null
+            && $this->netTo !== null
+            && $this->date !== null
+            && $this->origMsgID !== null
+            && $this->origName !== null
+            && $this->origAddr !== null
+            && $this->destName !== null
+            ) {
+            $params = true;
+        }
+
+        if ($this->isNetmail()) {
+            $controls = false;
+            //if ($this->hasControl('TOPT') && $this->hasControl('FMPT') && $this->hasControl('INTL')) {
+            if ($this->destAddr !== null) {
+                $controls = true;
+            }
+            //}
+        } else {
+            $controls = true;
+        }
+
+        // final check
+        if ($params && $controls) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     public function setProperty ($property, $value) {
         if (property_exists($this,$property)) {
             $this->$property = $value;
+        } else {
+            throw new \Exception('Property doesn\'t exists: '.$property);
         }
     }
     public function getProperty ($property) {
         if (property_exists($this,$property)) {
             return $this->$property;
+        } else {
+            throw new \Exception('Property doesn\'t exists: '.$property);
         }
     }
 
@@ -130,14 +239,18 @@ class Message
     }
 
     /**
-     * @param string|null $date
+     * @param \Datetime|string|null $date
      */
-    public function setDate($date)
+    public function setDate($date=null)
     {
-        if ($date = new \DateTime($date)) {
+        if ($date instanceof \DateTime) {
             $this->date = $date;
-        } else {
-            $this->date = new \DateTime();
+        } elseif (is_string($date)) {
+            if ($date_parsed = new \DateTime($date)) {
+                $this->date = $date_parsed;
+            } else {
+                $this->date = new \DateTime();
+            }
         }
     }
 
@@ -228,6 +341,7 @@ class Message
     public function setArea($area)
     {
         $this->area = $area;
+        $this->setEchomail(true);
     }
 
     /**
@@ -243,7 +357,11 @@ class Message
      */
     public function setOrigAddr(Address $origAddr)
     {
+        // just set address
         $this->origAddr = $origAddr;
+        // set message properties
+        $this->setNetFrom($origAddr->getNetwork());
+        $this->setNodeFrom($origAddr->getNode());
     }
 
     /**
@@ -259,7 +377,11 @@ class Message
      */
     public function setDestAddr(Address $destAddr)
     {
+        // just set address
         $this->destAddr = $destAddr;
+        // set message properties
+        $this->setNetTo($destAddr->getNetwork());
+        $this->setNodeTo($destAddr->getNode());
     }
 
     /**
@@ -291,7 +413,16 @@ class Message
      */
     public function setOrigin($origin)
     {
-        $this->origin = $origin;
+        if (preg_match("/^(?:.+)(?:\()(.+)(?:\))$/", $origin)) {
+            $originLine = $origin;
+        } else {
+            if ($this->getOrigAddr() instanceof Address) {
+                $originLine = sprintf("%s (%s)", $origin, $this->getOrigAddr()->dump());
+            } else {
+                $originLine = $origin;
+            }
+        }
+        $this->origin = $originLine;
     }
 
     /**
@@ -346,6 +477,7 @@ class Message
     }
 
     /**
+     * @used-by Parser::parsePacket()
      * @param Kludge $kludge
      */
     public function addControl($kludge)
@@ -419,6 +551,21 @@ class Message
         $this->attribute = $attribute;
     }
 
+    /**
+     * @return null
+     */
+    public function getCost()
+    {
+        return $this->cost;
+    }
+
+    /**
+     * @param null $cost
+     */
+    public function setCost($cost)
+    {
+        $this->cost = $cost;
+    }
 
     /**
      * @return array

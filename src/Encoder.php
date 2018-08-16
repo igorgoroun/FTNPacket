@@ -6,7 +6,7 @@
  * Time: 19:37
  */
 
-namespace IgorGoroun\FTNPacket;
+namespace snakemkua\FTNPacket;
 
 
 class Encoder
@@ -29,7 +29,7 @@ class Encoder
 
     public function encode () {
         foreach ($this->message->getEncodedFields() as $encodedField) {
-            $this->message->setProperty($encodedField,iconv($this->default_local,$this->default_outer,$this->message->getProperty($encodedField)));
+            $this->message->setProperty($encodedField,iconv($this->default_local,$this->message_chrs,$this->message->getProperty($encodedField)));
         }
     }
 
@@ -37,6 +37,11 @@ class Encoder
         $kludge = $this->message->hasKludge('CHRS');
         if ($kludge instanceof Kludge) {
             $parts = explode(' ', $kludge->getValue());
+            /* Hardcoded invalid codepages */
+            if (in_array(mb_strtoupper($parts[0]), ['IBMPC', 'FIDO'])) {
+                $parts[0] = $this->default_outer;
+            }
+            # set codepage
             $this->message_chrs = mb_strtolower($parts[0]);
         } else {
             $this->message_chrs = $this->default_outer;

@@ -6,7 +6,7 @@
  * Time: 22:56
  */
 
-namespace IgorGoroun\FTNPacket;
+namespace snakemkua\FTNPacket;
 
 
 class Kludge
@@ -20,6 +20,41 @@ class Kludge
      */
     private $value = null;
 
+    private const rfcKludges = array(
+        'INTL',
+        'FMPT',
+        'TOPT',
+        'MSGID',
+        'REPLY',
+        'REPLYADDR',
+        'REPLYTO',
+        'CHRS',
+        'TZUTC',
+        'TID',
+        'PID',
+        'Via',
+        'SEEN-BY',
+        'PATH'
+    );
+
+    public function __construct($label = null, $value = null) {
+        if ($label !== null && $value !== null && in_array($label, Kludge::rfcKludges)) {
+            $this->setLabel($label);
+            $this->setValue($value);
+        }
+    }
+
+    // FUNCTIONS
+    public function isValid() {
+        if ($this->label !== null && $this->value !== null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    // GETTERS AND SETTERS
+
     /**
      * @return null|string
      */
@@ -29,11 +64,16 @@ class Kludge
     }
 
     /**
-     * @param null|string $label
+     * @param $label
+     * @throws \Exception
      */
     public function setLabel($label)
     {
-        $this->label = $label;
+        if (in_array($label, Kludge::rfcKludges)) {
+            $this->label = $label;
+        } else {
+            throw new \Exception('Label not in list of available kludges');
+        }
     }
 
     /**

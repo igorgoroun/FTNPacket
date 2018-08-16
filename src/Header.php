@@ -6,11 +6,11 @@
  * Time: 20:50
  */
 
-namespace IgorGoroun\FTNPacket;
+namespace snakemkua\FTNPacket;
 
 /**
  * Class Header
- * @package IgorGoroun\FTNPacket
+ * @package snakemkua\FTNPacket
  */
 class Header
 {
@@ -29,15 +29,90 @@ class Header
     private $date = null;
     private $password = null;
 
-    function __construct() {
-        //$this->setDate(new \DateTime());
-    }
-
+    /**
+     * @param $property
+     * @param $value
+     */
     public function setProperty ($property, $value) {
         if (property_exists($this,$property)) {
             $this->$property = $value;
         }
     }
+    /**
+     * @return bool
+     */
+    public function valid() {
+        $params = false;
+        if ($this->getNodeFrom() !== null
+            && $this->getNodeTo() !== null
+            && $this->getNetFrom() !== null
+            && $this->getNetTo() !== null
+            && $this->getZoneFrom() !== null
+            && $this->getZoneTo() !== null
+            && $this->getDateYear() !== null
+            && $this->getDateMonth() !== null
+            && $this->getDateDay() !== null
+            && $this->getDateHour() !== null
+            && $this->getDateMinute() !== null
+            && $this->getDateSecond() !== null
+            && $this->getPassword() !== null
+        ) {
+            $params = true;
+        }
+
+        return $params;
+    }
+    /**
+     * @param Address $address
+     */
+    public function setFrom(Address $address) {
+        $this->setZoneFrom($address->getZone());
+        $this->setNetFrom($address->getNetwork());
+        $this->setNodeFrom($address->getNode());
+    }
+
+    /**
+     * @param Address $address
+     */
+    public function setTo(Address $address) {
+        $this->setZoneTo($address->getZone());
+        $this->setNetTo($address->getNetwork());
+        $this->setNodeTo($address->getNode());
+    }
+    /**
+     * @param \DateTime $date
+     */
+    public function setDate(\DateTime $date)
+    {
+        $this->date = $date;
+        if ($this->getDateYear() == null || $this->getDateMonth() == null || $this->getDateDay() == null ||
+            $this->getDateHour() == null || $this->getDateMinute() == null || $this->getDateSecond() == null)
+        {
+            $this->setDateYear($date->format('Y'));
+            $this->setDateMonth($date->format('m')-1);
+            $this->setDateDay($date->format('d'));
+            $this->setDateHour($date->format('H'));
+            $this->setDateMinute($date->format('i'));
+            $this->setDateSecond($date->format('s'));
+        }
+    }
+    /**
+     * @param null
+     */
+    public function calculateDate()
+    {
+        $date = new \DateTime();
+        $ts = mktime(
+            $this->getDateHour(),
+            $this->getDateMinute(),
+            $this->getDateSecond(),
+            $this->getDateMonth()+1,
+            $this->getDateDay(),
+            $this->getDateYear());
+        $date->setTimestamp($ts);
+        $this->setDate($date);
+    }
+
 
     /**
      * @return int|null
@@ -255,32 +330,6 @@ class Header
     {
         return $this->date;
     }
-
-    /**
-     * @param \DateTime $date
-     */
-    public function setDate(\DateTime $date)
-    {
-        $this->date = $date;
-    }
-
-    /**
-     * @param null
-     */
-    public function calculateDate()
-    {
-        $date = new \DateTime();
-        $ts = mktime(
-            $this->getDateHour(),
-            $this->getDateMinute(),
-            $this->getDateSecond(),
-            $this->getDateMonth()+1,
-            $this->getDateDay(),
-            $this->getDateYear());
-        $date->setTimestamp($ts);
-        $this->setDate($date);
-    }
-
 
 
 }

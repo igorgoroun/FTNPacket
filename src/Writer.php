@@ -6,13 +6,13 @@
  * Time: 15:21
  */
 
-namespace IgorGoroun\FTNPacket;
+namespace snakemkua\FTNPacket;
 
 use wapmorgan\BinaryStream\BinaryStream;
 
 /**
  * Class Writer
- * @package IgorGoroun\FTNPacket
+ * @package snakemkua\FTNPacket
  */
 class Writer
 {
@@ -39,8 +39,12 @@ class Writer
      * Writer constructor.
      * @param Packet $packet
      * @param string $file
+     * @throws \Exception
      */
     public function __construct(Packet &$packet, string $file) {
+        if (!$packet->valid()) {
+            throw new \Exception('Packet is not valid');
+        }
         $this->packet = $packet;
         $this->file = $file;
         try {
@@ -84,6 +88,9 @@ class Writer
         $this->binary->writeInteger(0,16);
     }
 
+    /**
+     * @param Message $message
+     */
     private function writeMessageHeader(Message &$message) {
         $binary = &$this->binary;
         $binary->writeInteger(2,16);
@@ -121,6 +128,7 @@ class Writer
             }
         }
     }
+    // TODO: Make ONE method instead of two, difference is only in ':' and ' ' as a separator
     private function writeMessageControls(Message &$message, $include=false, $except=false) {
         $binary = &$this->binary;
         foreach ($message->getControls() as $kludge) {
@@ -164,6 +172,10 @@ class Writer
         $binary->writeChar(0x0D);
     }
 
+    /**
+     * Packet Header reference: http://ftsc.org/docs/fts-0001.016
+     *
+     */
     private function writePacketHeader() {
         $binary = &$this->binary;
         $packet = &$this->packet;
@@ -191,8 +203,8 @@ class Writer
         $binary->writeInteger($packet->getHeader()->getZoneFrom(),16);
         $binary->writeInteger($packet->getHeader()->getZoneTo(),16);
         // fill 20 bytes
-        //$binary->writeString('igorgoroun.ftnpacket');
-        $binary->writeString('FTNP');
+        //$binary->writeString('snakemkua.ftnpacket');
+        $binary->writeString('ftnp');
         $binary->writeInteger(0,64);
         $binary->writeInteger(0,64);
     }

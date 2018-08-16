@@ -1,11 +1,11 @@
 <?php
 
-namespace IgorGoroun\FTNPacket\Tests\Controller;
+namespace snakemkua\FTNPacket\Tests\Controller;
 
-use IgorGoroun\FTNPacket\Address;
-use IgorGoroun\FTNPacket\Packet;
-use IgorGoroun\FTNPacket\Parser;
-use IgorGoroun\FTNPacket\Message;
+use snakemkua\FTNPacket\Address;
+use snakemkua\FTNPacket\Packet;
+use snakemkua\FTNPacket\Parser;
+use snakemkua\FTNPacket\Message;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
@@ -19,12 +19,14 @@ class ParseAddressTest extends WebTestCase
 
     public function testAddressForPoint() {
         try {
-            $address = new Address('2:5020/1024.123 ');
+            $address = new Address('2:5020/1024.123');
             $this->assertInstanceOf(Address::class, $address);
             $this->assertEquals(1024,$address->getNode());
             $this->assertEquals(123,$address->getPoint());
         } catch (\InvalidArgumentException $e) {
         }
+        $address = new Address('2:5020/0');
+        print_r($address);
     }
     public function testAddressForDomain() {
         try {
